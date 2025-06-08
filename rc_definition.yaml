@@ -1,0 +1,21 @@
+# https://kubernetes.io/docs/concepts/workloads/pods/
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: rc_image
+  labels:
+      type: demo
+
+spec: # We copy the settings of the original pod
+  template:
+    metadata:
+      name: nginx-pod
+      labels:
+        type: frontpod
+    spec:
+      containers:
+        - name: nginx-container
+          image: nginx
+
+replicas: 3
+  
