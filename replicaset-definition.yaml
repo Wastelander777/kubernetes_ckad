@@ -1,8 +1,8 @@
 apiVersion: apps/v1
 kind: ReplicaSet
 
-metada:
-  image: rcset-image
+metadata:
+  name: rcset-image
   labels:
       type: demo
 
@@ -19,7 +19,7 @@ spec: # We copy the settings of the original pod
 
   replicas: 3
   selector:
-    matchLabel: 
-      type: demo
+    matchLabels: 
+      type: frontpod
   
   
