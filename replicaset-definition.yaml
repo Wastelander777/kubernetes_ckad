@@ -1,12 +1,10 @@
 apiVersion: apps/v1
 kind: ReplicaSet
-
 metadata:
   name: rcset-image
   labels:
-      type: demo
-
-spec: # We copy the settings of the original pod
+    type: demo
+spec:  # We copy the settings of the original pod
   template:
     metadata:
       name: nginx-pod
@@ -16,10 +14,7 @@ spec: # We copy the settings of the original pod
       containers:
         - name: nginx-container
           image: nginx
-
   replicas: 3
   selector:
-    matchLabels: 
+    matchLabels:
       type: frontpod
-  
-  
